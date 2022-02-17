@@ -21,13 +21,19 @@ public class EditHtmlPage {
 		
 		//Get the default text
 		System.out.println("The default text is:"+driver.findElement(By.name("username")).getAttribute("value"));
+		//Append  a text and press keys.TAB
+		driver.findElement(By.xpath("//input[@value='Append ']")).clear();
+		driver.findElement(By.xpath("//input[@value='Append ']")).sendKeys("Kavinraj",Keys.TAB);
 		
+		//Get the default text
+		System.out.println("The default text is:"+driver.findElement(By.name("username")).getAttribute("value"));
+			
 		//clear the text
-		driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[4]/div/div/input")).clear();
-		
+		driver.findElement(By.xpath("//input[@value='Clear me!!']")).clear();
+			
 		//check the input field is disabled or not
-		System.out.println("Print false if the textbox is disabled:"+driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[5]/div/div/input")).isEnabled());
-		
+		System.out.println("Print false if the textbox is disabled:"+driver.findElement(By.xpath("//input[@disabled='true']")).isEnabled());
+			
 		driver.get("http://www.leafground.com/pages/Button.html");
 		
 		//position of button(x,y)
